@@ -1,0 +1,20 @@
+{
+  "name": "proj",
+  "version": "1.0.0",
+  "description": "IoT home controller",
+  "main": "dtbserver.js",
+  "scripts": {
+    "test": "node dtbserver.js",
+    "start": "node dtbserver.js"
+  },
+  "keywords": [
+    "start"
+  ],
+  "author": "Jashon Osala",
+  "license": "ISC",
+  "dependencies": {
+    "http": "0.0.1-security",
+    "mqtt": "^4.2.8",
+    "ws": "^8.2.3"
+  }
+}
