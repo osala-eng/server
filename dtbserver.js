@@ -58,7 +58,7 @@ app.get("/",(req,res)=>{
     console.log("HTTP CLIENT CONNECTED")
 });
 
-app.get("/white",(req,res)=>{ 
+app.post("/white",(req,res)=>{ 
   res.sendStatus(200)
   console.log("White light trigger")
   MQTT_CLIENT.publish("Home/ctrl", 'A', { qos: 0, retain: false }, (error) => {
