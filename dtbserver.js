@@ -3,6 +3,8 @@ var app = express()
 var db = require("./datastore.js")
 var md5 = require("md5")
 var server = require("http").createServer(app)
+var https = require("https")
+var fs = require("fs")
 var WebSocket = require("ws")
 var mqtt = require("mqtt")
 
@@ -12,6 +14,11 @@ const MQTT_PORT = 1883
 const MQTT_ID = "MAIN_SERVER" 
 var hostIp = "localhost"
 const connect_url = `mqtt://${MQTT_HOST}:${MQTT_PORT}`
+
+const options = {
+  key: fs.readFileSync('key.pem'),
+  cert: fs.readFileSync('cert.pem')
+};
 
 const MQTT_CLIENT = mqtt.connect(connect_url, {
     MQTT_ID, clean: true,
@@ -92,9 +99,14 @@ app.get("/fan",(req,res)=>{
 });
 
 
-
 // Start server
 server.listen(HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
 });
 
+https.createServer(options, app)
+.listen(8000, function (req, res) {
+  //res.writeHead(200);
+  //res.end("Secure server\n");
+  console.log("HTTPS SERVER AT 8000")
+});
