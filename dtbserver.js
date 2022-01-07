@@ -139,7 +139,7 @@ app.get("/fan",(req,res)=>{
 
 });
 
-app.get("/stream",(req,res)=>{ 
+app.get("/broadcast",(req,res)=>{ 
   //res.sendStatus(200)
   res.sendFile(path.join(__dirname + '/index.html'))
   console.log("Video stream initiated")
