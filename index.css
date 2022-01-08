@@ -1,0 +1,15 @@
+body{
+    background-color:#42f5c8;
+}
+header{
+    text-align: center;
+    font-size: xx-large;
+    color: #f11212;
+    font-style: normal;
+    font-family: cursive;
+    background-color: hsla(0, 0%, 99%, 0.527);  
+    border-radius: 5px; 
+}
+.videoPlayer{
+align-items: center;
+}
